@@ -5,9 +5,10 @@ Here I am going to make some notes regarding to tech interview questions
   * There are two types of polimorphism static and dynamic. 
   It is common for polimorphism when we have one function that can do 
   different job depending on sitiation.
-  For example we have fuction that should to add two big number and possible to bitness awerloading.
+  For example we have fuction that should to add two big number and possible to bitness owerloading.
   
 ## Example program
+```
 #include <iostream>
 #include <string>
 #include <limits>
@@ -41,6 +42,7 @@ int main()
 	}
 	return (0);
 }
+```
 
 ### This is so called static polimorphizm. 
 Compiler is creating many instances of addNumber function during compiling time.
