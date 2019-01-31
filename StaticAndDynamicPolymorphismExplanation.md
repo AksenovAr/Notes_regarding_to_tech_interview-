@@ -2,12 +2,12 @@
 Here I am going to make some notes regarding to tech interview questions
 
 ### What we mean when say poliorphyzm
-  * There are two types of polimorphism static and dynamic 
-  It common polimorphism it when we have one function that can do 
-  different job depending on sitiation. For example we have fuction 
-  that should to add two big number and possible to bitness awerloading.
+  * There are two types of polimorphism static and dynamic. 
+  It is common for polimorphism when we have one function that can do 
+  different job depending on sitiation.
+  For example we have fuction that should to add two big number and possible to bitness awerloading.
   
-  ## Example program
+## Example program
 #include <iostream>
 #include <string>
 #include <limits>
