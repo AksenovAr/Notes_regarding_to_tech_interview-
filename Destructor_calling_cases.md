@@ -1,4 +1,7 @@
 ## There are three cases when class destructor can be called
 1. When object leave visibility scope
-2. When we called destructor with delete operator
-3. When we handle exeption and reversing stack towads to catch 
+2. When we colled destructor with delete operator
+3. When we handle exeption and stack reversing towads to catch 
+
+## Importante notce !
+For the unsuccessful created constructor destructor will not be called
