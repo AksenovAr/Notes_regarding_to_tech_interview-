@@ -7,7 +7,8 @@
 #### Limitations
     * It correct works since C++11 version
     
-    // Example program
+### Example program
+```
 #include <iostream>
 #include <string>
 
@@ -44,29 +45,30 @@ int main()
     MySingletone& obj = MySingletone::Instance();
     obj.isWork();
 }
+```
 
 ### Below I placed ordinary singletone code example  :
 #### It is match more complicated need use sincronization objects to
 make it safe. As we can see we should care aboure object deleting and provide multhithreading correct work.
       
 #### Example program
+```
 #include <iostream>
 #include <string>
 
 using namespace std;
 
 class mySingleton
-// Это Singleton без глобальной точки доступа
 {
 public:
-	static mySingleton * create()
+	static mySingleton * Instance()
 	{
 		if(!self_)
 		{
 			self_ = new mySingleton();
 			return self_;
 		}
-		return 0;
+		return nullptr;
 	}
 
 	static bool kill()
@@ -95,12 +97,11 @@ mySingleton *mySingleton::self_ = 0;
 
 int main()
 {
-    mySingleton* pObj = mySingleton::create();
+    mySingleton* pObj = mySingleton::Instance();
     pObj->isWork();
     pObj->kill();
 }
+```
 
 ## Conclusion
-   Based on static type singletone match more preferable than
-   based on memory aloocated in the heap
-
+   Based on static type singletone match more preferable than based on memory aloocated in the heap. Inthe second case we should worried about safethread becouse if in the row number 68 task context switch will occur memory will be alocate two times.
