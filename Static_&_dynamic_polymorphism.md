@@ -102,7 +102,8 @@ int main()
      pObj->f();   
 }
 ```
-## In the code above every time intering in the constructor at symbol { we overwrite shift of function in the virtual table. And every time when we call any function usen virtual table mechanizm it is called runtime polimorphizm.
+## In the code above every time entering in the constructor at symbol { we overwrite shift of function in the virtual table.
+And every time when we call any function using virtual table mechanizm it is called runtime polimorphizm.
   
   
   
