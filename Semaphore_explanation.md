@@ -13,19 +13,15 @@ std::atomic<int> iCount;
 void wait()
 {
     std::unique_lock<std::mutex> lck(mut);
-    iCount--;
-    while (!iCount){}
-    cv.notify_all();   
-    // Doing some job here
-    iCount = initial value;
+    cv.wait(lck, [] () {return !iCount});    
+    --iCount;
 }
 
 void signal() // 
 {
     std::unique_lock<std::mutex> lck(mut);
-
     iCount++;        
-    cv.wait(lck, [] () {return iCount});    
+    cv.notify_one(); 
 }
 ```
 
