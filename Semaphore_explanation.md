@@ -21,7 +21,7 @@ void signal() //
 {
     std::unique_lock<std::mutex> lck(mut);
     iCount++;        
-    cv.notify_one(); 
+    cv.notify_all(); 
 }
 ```
 
