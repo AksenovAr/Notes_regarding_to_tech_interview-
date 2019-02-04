@@ -9,7 +9,6 @@ After one circle of working they stop at barierr and wait for all threads will b
 std::mutex mut;
 std::condition_variable cv;
 std::atomic<int> iCount;
-std::atomic<bool> bDone = false;
 
 void wait()
 {
@@ -18,7 +17,7 @@ void wait()
     while (!iCount){}
     cv.notify_all();   
     // Doing some job here
-    bDone = true;
+    iCount = initial value;
 }
 
 void signal() // 
@@ -26,7 +25,7 @@ void signal() //
     std::unique_lock<std::mutex> lck(mut);
 
     iCount++;        
-    cv.wait(lck, [] () {return bDone});    
+    cv.wait(lck, [] () {return iCount});    
 }
 ```
 
