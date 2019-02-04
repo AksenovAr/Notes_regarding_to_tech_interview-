@@ -6,22 +6,78 @@ After one circle of working they stop at barierr and wait for all threads will b
   Signal function increase thread counter 
   
 ```
-std::mutex mut;
-std::condition_variable cv;
-std::atomic<int> iCount;
+#include <iostream>
+#include <string>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
 
-void wait()
+using namespace std;
+
+class MySemaphore
 {
-    std::unique_lock<std::mutex> lck(mut);    
-    --iCount;
-    cv.wait(lck, [] () {return !iCount});        
+    std::mutex mut;
+    std::condition_variable cv;
+    int iCount;
+public:
+    MySemaphore(int count)
+    {
+        iCount = count;
+    }
+    
+    void wait()
+    {
+        std::unique_lock<std::mutex> lck(mut);    
+        while(iCount == 0)
+        {
+            cv.wait(lck );        
+        }
+         --iCount;
+    }
+    
+    void signal() // 
+    {
+        std::unique_lock<std::mutex> lck(mut);
+        iCount++;        
+        cv.notify_one(); 
+    }
+};
+
+MySemaphore   obj(3);
+ 
+void job1()
+{
+    obj.wait();    
+    std::cout << "From Job1 "  << std::endl;       
 }
 
-void signal() // 
-{
-    std::unique_lock<std::mutex> lck(mut);
-    iCount++;        
-    cv.notify_all(); 
+void job2()
+{         
+    obj.wait();
+    std::cout << "From Job2 "  << std::endl;
+}
+
+void job3()
+{   
+    obj.wait();
+    std::cout << "From Job3 " << std::endl;
+}
+
+int main()
+{ 
+    std::thread t1 (job1);
+    std::thread t2 (job2);
+    std::thread t3 (job3);
+    
+    std::cout << "Running in pararel 3 thread \n";
+    
+    obj.signal();
+    
+    t1.join();
+    t2.join();
+    t3.join();
+    
+    std::cout << "Test has finished !!!!!!";
 }
 ```
 
