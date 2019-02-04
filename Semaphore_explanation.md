@@ -1,4 +1,4 @@
-## Semaphore main idea is start threads parallel. 
+## Semaphore main idea is start threads in parallel. 
 After one circle of working they stop at barierr and wait for all threads will be ready to start new raicing. 
 ## Semaphore has two function wait and signal.
   Wait function decrease thread counter and when it is equal zero will condition variable emit notify_all notification. Recieved this signal threads start working.
