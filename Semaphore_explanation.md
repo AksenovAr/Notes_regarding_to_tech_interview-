@@ -12,9 +12,9 @@ std::atomic<int> iCount;
 
 void wait()
 {
-    std::unique_lock<std::mutex> lck(mut);
-    cv.wait(lck, [] () {return !iCount});    
+    std::unique_lock<std::mutex> lck(mut);    
     --iCount;
+    cv.wait(lck, [] () {return !iCount});        
 }
 
 void signal() // 
