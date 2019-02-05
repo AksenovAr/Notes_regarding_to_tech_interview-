@@ -82,4 +82,4 @@ DTOR D
 to be continue
 
 Here I am going to place image from Skott Mayers book 
-How objects allocated in the memory
+How objects are allocating in the memory
