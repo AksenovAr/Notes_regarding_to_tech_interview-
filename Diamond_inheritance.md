@@ -68,4 +68,15 @@ int main()
     A  obj;  
 }
 ```
+### Output 
+
+CTOR D 
+CTOR B 
+CTOR C 
+CTOR A 
+DTOR A 
+DTOR C 
+DTOR B 
+DTOR D 
+
 to be continue
