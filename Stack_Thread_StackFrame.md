@@ -5,3 +5,5 @@ that called in thread.
 
 Frame contents function arguments, function return adress, BSP registry copy local values and code. 
 
+## ESP is the current stack pointer. EBP is the base pointer for the current stack frame
+
