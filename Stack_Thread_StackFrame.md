@@ -7,3 +7,6 @@ Frame contents function arguments, function return adress (from function where c
 
 ## ESP is the current stack pointer. EBP is the base pointer for the current stack frame
 
+## Where is the code of fuction stored
+
+![](https://i.imgur.com/Tc6zvOr.jpg)
