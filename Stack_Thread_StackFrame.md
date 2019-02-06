@@ -9,4 +9,5 @@ Frame contents function arguments, function return adress (from function where c
 
 ## Where is the code of fuction stored
 
-![](https://i.imgur.com/Tc6zvOr.jpg)
+![](https://i.imgur.com/FtOGCvy.jpg)
+
