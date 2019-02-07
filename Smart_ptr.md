@@ -13,7 +13,7 @@ that cover needs.
  
  Place here example
 
-### If we use c++ exeption in object constructor we can not use smart pointer gived above.
+### If we use c++ exeption in object constructor we can not use smart pointers gived above.
 
 For this cases we should use the follow analog of smart pointers 
 1. make_unique
