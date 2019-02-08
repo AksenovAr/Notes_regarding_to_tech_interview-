@@ -19,4 +19,4 @@ To find some element we shoud pass all elements in containers in the worst case.
 
 Delete and Remove operation do not require moving other elements in the memory.
 
-### Stack and Queue have no iterator and introduce yourself adapter. 
+###
