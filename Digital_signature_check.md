@@ -150,5 +150,9 @@ switch (algorithm)
        }
    }
 ```
+### Very importante notice !
+
+Don`t forget read public key in sPubKey std::string value
+
 
 to be continue
