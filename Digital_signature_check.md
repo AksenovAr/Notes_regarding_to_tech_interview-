@@ -99,4 +99,56 @@ bool verify_ECDSAmessage(unsigned char const* pMessage, int msgLen,
 }
 ```
 
-to be continue ...
+### Before using library we should init some values
+
+ ```
+switch (algorithm)
+   {
+       case SHA384withRSA:
+       {
+           unsigned char digest[SHA384_DIGEST_LENGTH];
+           SHA512_CTX ctx;
+           SHA384_Init(&ctx);
+           SHA384_Update(&ctx, pMessage, msgLen);
+           SHA384_Final(digest, &ctx);
+
+           res = _verify_RSAmessage(digest, sizeof(digest), pSignature, sigLen, NID_sha384);
+           break;
+       }
+       case SHA512withRSA:
+       {
+           unsigned char digest[SHA512_DIGEST_LENGTH];
+           SHA512_CTX ctx;
+           SHA512_Init(&ctx);
+           SHA512_Update(&ctx, pMessage, msgLen);
+           SHA512_Final(digest, &ctx);
+
+           res = _verify_RSAmessage(digest, sizeof(digest), pSignature, sigLen, NID_sha512);
+           break;
+       }
+       case SHA384withECDSA:
+       {
+            unsigned char digest[SHA384_DIGEST_LENGTH];
+            SHA512_CTX ctx;
+            SHA384_Init(&ctx);
+            SHA384_Update(&ctx, pMessage, msgLen);
+            SHA384_Final(digest, &ctx);
+
+            res = _verify_ECDSAmessage(digest, sizeof(digest), pSignature, sigLen, NID_secp384r1);
+            break;
+       }
+       case SHA512withECDSA:
+       {
+            unsigned char digest[SHA512_DIGEST_LENGTH];
+            SHA512_CTX ctx;
+            SHA512_Init(&ctx);
+            SHA512_Update(&ctx, pMessage, msgLen);
+            SHA512_Final(digest, &ctx);
+
+            res = _verify_ECDSAmessage(digest, sizeof(digest), pSignature, sigLen, NID_secp521r1);
+            break;
+       }
+   }
+```
+
+to be continue
