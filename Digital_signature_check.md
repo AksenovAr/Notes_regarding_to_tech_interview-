@@ -99,7 +99,7 @@ bool verify_ECDSAmessage(unsigned char const* pMessage, int msgLen,
 }
 ```
 
-### Before using library we should init some values
+### Before using functions we should init some values
 
  ```
 switch (algorithm)
