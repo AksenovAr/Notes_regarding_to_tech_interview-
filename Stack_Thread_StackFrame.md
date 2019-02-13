@@ -11,3 +11,11 @@ Frame contents function arguments, function return adress (from function where c
 
 ![](https://i.imgur.com/FtOGCvy.jpg)
 
+### In c++ 11 and higher we can use values  in many threads and behaviour will not be undefined
+
+''' Global
+           atomic<int> x, y;
+
+Thread 1                 Thread 2
+x.store(17);             cout << y.load() << " ";
+y.store(37);             cout << x.load() << endl;'''
