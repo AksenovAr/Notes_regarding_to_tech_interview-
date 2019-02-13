@@ -9,9 +9,74 @@ that cover needs.
  
  Place here example
  
- ### Example of shared_ptr
+ ### Code example of shared_ptr
  
- Place here example
+```
+template<typename T>
+class MySharedPtr
+{    
+    MySharedPtr( const T* pObj ): m_pObj(nullptr), mp_count(nullptr)
+    {
+        m_pObj = pObj;
+        mp_count = new int(1);
+    }
+    
+    MySharedPtr( const MySharedPtr & obj )
+    {
+        m_pObj = obj.m_pObj;
+        Increment();                  
+    }
+    
+    ~MySharedPtr( const MySharedPtr & obj)    
+    {   
+        Decrement();
+        if( m_pObj && m_count == 0)
+        {
+            delete m_pObj;
+            m_pObj = nullptr;
+            delete mp_count;
+            mp_count = nullptr;
+        }
+    }
+
+    MySharedPtr& operator = ( const MySharedPtr & obj )
+    {
+        if ( this !=  &obj)
+        {
+            m_pObj = obj.m_pObj;
+            Increment();                   
+        }        
+        return this;
+    }
+    
+    T* operator -> () const 
+    {
+        return m_pObj;
+    }
+    
+    
+    T& operator*() const 
+    {
+        return *pt; 
+    }
+    
+    
+    private:
+    void Increment()
+    {
+        (*mp_count)++;
+        
+    }
+    void Decrement()
+    {
+        (*mp_count)--;
+    }
+    
+    //deep copy -- need to change it in all instance
+    int* mp_count;
+    T* m_pObj;
+};
+```
 
 ### If we use c++ exeption in object constructor we can not use smart pointers gived above.
 
