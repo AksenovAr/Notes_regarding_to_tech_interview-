@@ -1,10 +1,12 @@
-## There are three cases when class destructor can be called
+## There are three cases when class destructor can be called implicitly
+
 1. When object leave visibility scope.
 2. When we called destructor with delete operator.
 3. When compiler handle exeption in try and stack reversing towads to catch.
 
 ## Importante notice !
 For the unsuccessful created constructor destructor will not be called.
+You always can call destructor directly but behaviour in that case become undefined and destructon will called after that implicitly too.
 
 ## Threre are two type of new operator
 
@@ -20,4 +22,5 @@ unsigned char buf[sizeof(int)*2] ;
 // placement new in buf 
 int *pInt = new (buf) int(3); 
 ```
+
 to be continue
