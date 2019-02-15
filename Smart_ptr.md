@@ -77,6 +77,8 @@ class MySharedPtr
     T* m_pObj;
 };
 ```
+## Here people make notice to that implementation
+https://codereview.stackexchange.com/questions/140693/shared-ptr-code-implementation
 
 ### If we use c++ exeption in object constructor we can not use smart pointers gived above.
 
