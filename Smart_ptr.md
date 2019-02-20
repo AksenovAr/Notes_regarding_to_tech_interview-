@@ -10,9 +10,92 @@ that cover needs.
  Place here example
  
  ### Code example of shared_ptr
-
-deleted for  improvment
-
+'''
+template<class T>
+class MySharedPtr
+{
+    public:
+    
+    //Constructor
+    MySharedPtr(const T* pObj)
+    :m_pCountOfReference(nullptr),  m_pData(nullptr)
+    {
+        m_pData = pObj;
+        m_pCountOfReference = new int(1);
+    }
+    
+    //Destructor
+    ~MySharedPtr()
+    {
+         (*m_pCountOfReference)--;
+         if( (*m_pCountOfReference) == 0 )
+         {
+            delete m_pData;
+         }
+    }
+    
+    //Copy constructor
+    MySharedPtr(const T& pObj)
+    {
+         m_pCountOfReference = pObj.m_pCountOfReference;
+        (*m_pCountOfReference)++;
+        m_pData = pObj.m_pData;
+    }
+    
+    //Move constructor
+    MySharedPtr(const T&& pObj)
+    {
+         m_pCountOfReference = pObj.m_pCountOfReference;
+        (*m_pCountOfReference)++;
+        m_pData = pObj.m_pData;
+    }
+    
+    //operator = 
+     MySharedPtr<T>& operator = (const  MySharedPtr<T>& pObj)
+    {
+        if( this == &pObj ) return *this;
+        
+        if ( *m_pCountOfReference == 1 )
+        {
+            delete m_pCountOfReference;
+            delete m_pData;
+        }
+        
+        m_pCountOfReference = pObj.m_pCountOfReference;
+        (*m_pCountOfReference)++;
+        m_pData = pObj.m_pData;
+        
+        return *this;
+    }
+    
+    //move operator = 
+    MySharedPtr<T>& operator = (const  MySharedPtr<T>&& pObj)
+    {
+        if( this == &pObj )  return *this;
+        
+        if ( *m_pCountOfReference == 1 )
+        {
+            delete m_pCountOfReference;
+            delete m_pData;
+        }
+        
+        m_pCountOfReference = pObj.m_pCountOfReference;
+        (*m_pCountOfReference)++;
+        m_pData = pObj.m_pData;
+        
+        return *this;
+    }
+    
+    T* operator->() const
+    {                
+        return m_pData;
+    }
+    
+    private:
+    int * m_pCountOfReference;
+    T * m_pData;
+};
+'''
 ## Here people make notice to that implementation
 https://codereview.stackexchange.com/questions/140693/shared-ptr-code-implementation
 
