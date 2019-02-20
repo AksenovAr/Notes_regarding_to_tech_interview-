@@ -10,7 +10,8 @@ that cover needs.
  Place here example
  
  ### Code example of shared_ptr
-'''
+ 
+```
 template<class T>
 class MySharedPtr
 {
@@ -95,7 +96,8 @@ class MySharedPtr
     int * m_pCountOfReference;
     T * m_pData;
 };
-'''
+```
+
 ## Here people make notice to that implementation
 https://codereview.stackexchange.com/questions/140693/shared-ptr-code-implementation
 
