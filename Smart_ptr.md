@@ -7,7 +7,63 @@ that cover needs.
 
 ### Example of unique_ptr
  
- Place here example
+ ```
+template<typename T>
+class myUnique_ptr
+{
+    myUnique_ptr(const T* pObj)
+    : m_pData(nullptr)
+    {
+        m_pData = pObj;        
+    }
+    
+    ~myUnique_ptr()
+    {
+        if (m_pData)
+        {
+            delete m_pData;
+        }
+    }
+    
+    // Copy constructor
+    myUnique_ptr(const myUnique_ptr& obj)
+    {
+        m_pData = std::move( obj.m_pData );
+        obj.m_pData = nullptr;
+    }
+    
+    // Move constructor
+    myUnique_ptr(const myUnique_ptr&& obj)
+    {
+        m_pData = std::move( obj.m_pData );
+        obj.m_pData = nullptr;
+    }
+    
+    // assigment operator
+    myUnique_ptr& operator =  (const myUnique_ptr& obj)
+    {
+        if (this == &obj) return *this;
+        
+        m_pData = std::move( obj.m_pData );
+        obj.m_pData = nullptr;
+        
+        return *this;
+    }
+    
+     // assigment operator
+    myUnique_ptr& operator =  (const myUnique_ptr&& obj)
+    {
+        if (this == &obj) return *this;
+        
+        m_pData = std::move( obj.m_pData );
+        obj.m_pData = nullptr;
+        
+        return *this;
+    }
+    
+    T* m_pData;  
+};
+ ```
  
  ### Code example of shared_ptr
  
