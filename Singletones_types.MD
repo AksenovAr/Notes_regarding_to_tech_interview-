@@ -102,6 +102,42 @@ int main()
     pObj->kill();
 }
 ```
+### Below we consider the best variant of singletone IMHO
+
+```
+class MySingletone
+{
+    public :
+    
+    static shared_ptr<MySingletone> getInstance()
+    {
+        std::cout <<  " Enter in getInstance \n ";
+        static shared_ptr<MySingletone> obj(new MySingletone);
+        return obj;
+    }
+        
+    void isWork()
+    {
+        std::cout <<  " It is working \n ";
+    }
+   
+     MySingletone() { cout << " Ctor singltone ! \n" ;} ;
+    ~MySingletone() { cout << " Dtor singltone ! \n" ;} ;
+    
+    private:
+           
+    MySingletone&  operator = (const MySingletone& )  = delete;
+    MySingletone&  operator = (const MySingletone&& ) = delete;
+    MySingletone( const MySingletone& ) = delete;
+    MySingletone( const MySingletone&& ) = delete;
+};
+
+int main()
+{
+    shared_ptr<MySingletone> obj( MySingletone::getInstance() );
+    obj->isWork();
+}
+```
 
 ## Conclusion
    Based on static type singletone match more preferable than based on memory aloocated in the heap. Inthe second case we should worried about safethread becouse if in the row number 68 task context switch will occur memory will be alocate two times.
