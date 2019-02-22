@@ -9,9 +9,9 @@ In classical variant at first we create the class members and then initialize th
 And the second we can initialize reference in the initialization list.
 
 ```
-struct A {    // 3 
-    A &a; 
-    A() : a(*this) { }  
+struct Obj { 
+    Obj &a; 
+    Obj() : a(*this) { }  
 };
 ```
 Below is example of how to use initialization list in pImpl idiom.
