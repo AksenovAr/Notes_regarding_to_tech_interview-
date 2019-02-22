@@ -2,7 +2,11 @@
 
 ### C++ initialization list
 
-we can initilize references in initialization list.
+we can initilize references in initialization list. 
+Initialization list has a some advantage in front of constructor initialization.
+At first, class member objects members creating and initialization doing in the same time
+In classical variant at first we create the class members and then initialize them in constructor.
+And the second we can initialize reference in the initialization list.
 
 ```
 struct A {    // 3 
