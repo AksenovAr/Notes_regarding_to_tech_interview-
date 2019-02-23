@@ -28,70 +28,7 @@ int main()
     return 0;
 }
 ```
-### Composition
-#### Example of code 
-```
-class A
-{
-private:
- 
-public:
-    A() { cout << "Of A +" << endl; }
-    ~A(){ cout << "Of A -" << endl; }
-    
-};
- 
-class B 
-{
-private:
-    A classInClass;
-public:
-    B() { cout << "Of B +" << endl; }
-    ~B(){ cout << "Of B -" << endl; }
-    
-};
- 
-int main()
-{
-    B ptr;
-    return 0;
-}
-```
-### Agregation 
-#### Example of code 
 
-```
-class A
-{
-private:
- 
-public:
-    A() { cout << "Of A +" << endl; }
-    ~A(){ cout << "Of A -" << endl; }
-    
-};
- 
-class B 
-{
-private:
-    A* classInClass;
-public:
-    B()
-    {
-        classInClass = new A();
-        cout << "Of B +" << endl; 
-    }
-    ~B()
-    {
-        delete classInClass;        
-        cout << "Of B -" << endl; 
-    }
-    
-};
- 
-int main()
-{
-    B ptr;
-    return 0;
-}
-```
+...To be cotinued
+
+Remeved for improvements
