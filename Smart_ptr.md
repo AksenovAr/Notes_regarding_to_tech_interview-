@@ -92,7 +92,7 @@ class MySharedPtr
     }
     
     //Copy constructor
-    MySharedPtr(const T& pObj)
+    MySharedPtr(const MySharedPtr& pObj)
     {
          m_pCountOfReference = pObj.m_pCountOfReference;
         (*m_pCountOfReference)++;
@@ -100,7 +100,7 @@ class MySharedPtr
     }
     
     //Move constructor
-    MySharedPtr(const T&& pObj)
+    MySharedPtr(const MySharedPtr&& pObj)
     {
          m_pCountOfReference = pObj.m_pCountOfReference;
         (*m_pCountOfReference)++;
