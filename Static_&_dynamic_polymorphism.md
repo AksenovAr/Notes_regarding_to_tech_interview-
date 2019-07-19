@@ -38,7 +38,7 @@ int main()
 	}
 	catch (...)
 	{
-		std::cout << "Exeption";
+		std::cout << "Exception was cought";
 	}
 	return (0);
 }
