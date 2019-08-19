@@ -12,9 +12,8 @@ template<typename T>
 class myUnique_ptr
 {
     myUnique_ptr(const T* pObj)
-    : m_pData(nullptr)
+    : m_pData(pObj)
     {
-        m_pData = pObj;        
     }
     
     ~myUnique_ptr()
@@ -33,7 +32,7 @@ class myUnique_ptr
     }
     
     // Move constructor
-    myUnique_ptr(const myUnique_ptr&& obj)
+    myUnique_ptr(myUnique_ptr&& obj)
     {
         m_pData = std::move( obj.m_pData );
         obj.m_pData = nullptr;
@@ -51,7 +50,7 @@ class myUnique_ptr
     }
     
      // assigment operator
-    myUnique_ptr& operator =  (const myUnique_ptr&& obj)
+    myUnique_ptr& operator =  (myUnique_ptr&& obj)
     {
         if (this == &obj) return *this;
         
