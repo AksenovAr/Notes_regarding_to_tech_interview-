@@ -1,0 +1,27 @@
+###  Good code to understund how to class allocate in memory with virtual function
+```
+#include <iostream>
+#include <string>
+
+struct base
+{
+    base()
+    : a(12), b(2)
+    {
+    }
+    virtual ~base()
+    {
+    }
+    int a;
+    int b;
+};
+
+int main()
+{
+    base obj;
+    base* p_base = &obj;
+    int* p_Int = (int*) (p_base);
+    std::cout << *(p_Int+3);
+    
+}
+```
