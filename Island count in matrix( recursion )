@@ -1,0 +1,80 @@
+### How to calculate island count in matrix using recursion
+```
+#include <iostream>
+#include <string>
+#include <iostream>
+#include <functional>
+#include <vector>
+
+namespace
+{
+	struct Lake
+	{
+		size_t width;
+		size_t length;
+		std::vector<char> matrix;
+	};
+
+	size_t countIslands(const Lake& obj)
+	{
+		int res = 0;
+		// Implement functionality here to count islands in passed
+		// Lake parameter.
+		//
+		// '0' characters represent water and '1' characters represent
+		// land.
+		// Any 2 adjacent '1' characters are part of the same island.
+		std::vector<char> _lake( std::move(obj.matrix));
+		size_t width = std::move(obj.width);
+		size_t length = std::move(obj.length);
+
+		for (size_t i = 0; i < width; ++i)
+		{
+			for (size_t j = 0; j < length; ++j)
+			{
+				if (_lake.at(j*width+i) == 1)
+				{
+					res++;
+					std::function<void(std::vector<char>&, int, int)> f = [&f, width, length](std::vector<char>& _lake, int x, int y)
+					{
+						if (_lake.at(y*width + x) == 0)
+						{
+							return;
+						}
+						else
+						{
+							_lake.at(y*width + x) = 0;
+							if (width-x-1 >= 0) f(_lake, x+1, y);
+							if (x-1 >=0) f(_lake, x-1, y);
+							if (length-y-1) f(_lake, x, y+1);
+							if (y-1 >= 0) f(_lake, x, y-1);
+						}
+					};
+
+					f(_lake, static_cast<int>(i), static_cast<int>(j));
+				}
+			} // end for j
+		} // end for i
+		return res;
+		//return 2;  // Dummy return value to be replaced
+	}
+} // end of namespace 
+
+	int main()
+	{
+
+		Lake lake;
+		lake.width = 3;
+		lake.length = 4;
+		lake.matrix =
+		{
+			0, 1, 1,
+			0, 0, 0,
+			0, 0, 1,
+			0, 1, 1
+		};
+
+		std::cout << "Lake contains " << countIslands(lake) << " islands\n\n";
+		return 0;
+	}
+```
