@@ -74,10 +74,8 @@ class MySharedPtr
     
     //Constructor
     MySharedPtr(const T* pObj)
-    :m_pCountOfReference(nullptr),  m_pData(nullptr)
-    {
-        m_pData = pObj;
-        m_pCountOfReference = new int(1);
+    :m_pCountOfReference(new int(1)),  m_pData(pObj)
+    {     
     }
     
     //Destructor
