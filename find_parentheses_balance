@@ -1,0 +1,51 @@
+### Find parentheses balance in the file / string
+
+```
+// Example program
+#include <iostream>
+#include <string>
+#include <fstream>
+
+int main()
+{
+  //std::string name("Ty{sd}{{}{}}");
+  std::fstream fin;
+  fin.open("C:\\...");
+  int b_count = 0;
+  if (fin)
+  {
+      // fin >> ch return  true if reach fin.eof()
+      for ( char ch; fin >> ch;  )
+      {
+          if ( ch == '{' )
+          {
+              b_count++;
+          }
+
+          if ( ch == '}' )
+          {
+            // remove top elements
+             if ( --b_count < 0 ) break;
+          }
+      }
+      
+      // закрытие потока
+      fin.close();
+        
+      if (b_count == 0 )
+      {
+          std::cout << "There is a balance";
+      }
+      else
+      {
+          std::cout << "There is no balance";
+      }
+  }
+  else
+  {
+    std::cout << "Can not open the file !";
+  }
+  
+}
+
+```
