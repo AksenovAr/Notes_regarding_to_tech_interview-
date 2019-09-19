@@ -1,0 +1,38 @@
+#### find the largest number of consecutive letters
+
+```
+#include <iostream>
+#include <string>
+
+int main()
+{
+  std::string name("artuuulpaaaaaa");
+  size_t max_count = 0;
+  size_t count = 0;
+  
+  char ch('0');
+  for (size_t i = 0; i < name.size()-1; ++i)
+  {
+      char current = name[i];
+      char next = name[i+1];
+     
+      if (current == next)
+      {
+          ch = current;
+          count++;
+          if ( count > max_count ) max_count = count;
+      }
+      else
+      {
+          
+          count = 0;
+      }
+      
+      
+  }
+  
+  std::cout << max_count+1 << "-" << ch;
+  
+}
+
+```
