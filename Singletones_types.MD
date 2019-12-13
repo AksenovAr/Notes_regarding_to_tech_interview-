@@ -35,9 +35,9 @@ class MySingletone
     private:
      
     MySingletone&  operator = (const MySingletone& )  = delete;
-    MySingletone&  operator = (const MySingletone&& ) = delete;
+    MySingletone&  operator = ( MySingletone&& ) = delete;
     MySingletone( const MySingletone& ) = delete;
-    MySingletone( const MySingletone&& ) = delete;
+    MySingletone( MySingletone&& ) = delete;
 };
 
 int main()
@@ -127,9 +127,9 @@ class MySingletone
     private:
            
     MySingletone&  operator = (const MySingletone& )  = delete;
-    MySingletone&  operator = (const MySingletone&& ) = delete;
+    MySingletone&  operator = ( MySingletone&& ) = delete;
     MySingletone( const MySingletone& ) = delete;
-    MySingletone( const MySingletone&& ) = delete;
+    MySingletone( MySingletone&& ) = delete;
 };
 
 int main()
