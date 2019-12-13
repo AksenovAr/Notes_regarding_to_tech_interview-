@@ -159,7 +159,6 @@ https://codereview.stackexchange.com/questions/140693/shared-ptr-code-implementa
 For this cases we should use the follow analog of smart pointers 
 1. make_unique
 2. make_shared
-3. make_weak
 
 The reason why we should do it the follow destructor is not called for undone constructor and for unique_prt object will not be destroyed. For shared and weak ptr object handle counter lost count. 
 
