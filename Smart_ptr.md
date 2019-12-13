@@ -97,7 +97,7 @@ class MySharedPtr
     }
     
     //Move constructor
-    MySharedPtr(const MySharedPtr&& pObj)
+    MySharedPtr(MySharedPtr&& pObj)
     {
          m_pCountOfReference = pObj.m_pCountOfReference;
         (*m_pCountOfReference)++;
@@ -123,7 +123,7 @@ class MySharedPtr
     }
     
     //move operator = 
-    MySharedPtr<T>& operator = (const  MySharedPtr<T>&& pObj)
+    MySharedPtr<T>& operator = ( MySharedPtr<T>&& pObj)
     {
         if( this == &pObj )  return *this;
         
