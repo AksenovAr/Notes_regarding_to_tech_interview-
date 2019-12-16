@@ -25,3 +25,8 @@ int main()
     
 }
 ```
+It will out 2. Why ? In the memory it allocates as 
+pAtVitualTable
+pointer at dtor
+a value(12)
+b value(2). 
