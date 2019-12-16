@@ -1,0 +1,17 @@
+#### To understund enplace_back and move operator try it 
+
+`#include <iostream>
+#include <string>
+#include <vector>
+
+
+int main()
+{
+  std::vector<std::string> bar;
+  std::string str("some_string");
+   bar.emplace_back(std::move(str)); 
+    //str.clear();
+  //bar.emplace_back(str);
+  //std::cout << str << std::endl;
+  std::cout << bar.at(0);
+}`
