@@ -21,7 +21,7 @@ int main()
     base obj;
     base* p_base = &obj;
     int* p_Int = (int*) (p_base);
-    std::cout << *(p_Int+3);
+    std::cout << *(3+p_Int);
     
 }
 ```
