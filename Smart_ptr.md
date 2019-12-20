@@ -11,7 +11,8 @@ that cover needs.
 template<typename T>
 class myUnique_ptr
 {
-    myUnique_ptr(const T* pObj)
+public:
+    myUnique_ptr(T* pObj)
     : m_pData(pObj)
     {
     }
