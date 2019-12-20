@@ -74,7 +74,7 @@ class MySharedPtr
     public:
     
     //Constructor
-    MySharedPtr(const T* pObj)
+    MySharedPtr(T* pObj)
     :m_pCountOfReference(new int(1)),  m_pData(pObj)
     {     
     }
