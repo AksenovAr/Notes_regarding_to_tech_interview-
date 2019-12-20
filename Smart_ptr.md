@@ -24,7 +24,11 @@ public:
             delete m_pData;
         }
     }
-    
+   
+   T& get()
+   {
+       return *m_pData;
+   }
     // Copy constructor
     myUnique_ptr(const myUnique_ptr& obj)
     {
