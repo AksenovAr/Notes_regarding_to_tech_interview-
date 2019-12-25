@@ -132,7 +132,7 @@
   m_size - размер кадра
   
   {
-  uint32_t offset_Y = m_size.width * m_y_extern_coord + m_x_extern_coord;
+  	uint32_t offset_Y = m_size.width * m_y_extern_coord + m_x_extern_coord;
 	uint32_t offset_U_V = m_size.width/2 * m_y_extern_coord/2 + m_x_extern_coord/2;
 
 	std::int32_t src_stride[] =
@@ -157,9 +157,6 @@
 	int ret = av_buffersrc_add_frame_flags(m_buffersrc_ctx, m_frame_in.get(), AV_BUFFERSRC_FLAG_PUSH);
 	if (ret < 0)
 	{
-		LOG(m_log, warning)
-				<< "Error while feeding the filtergraph:";
-		LOG_END;
 		return;
 	}
 
