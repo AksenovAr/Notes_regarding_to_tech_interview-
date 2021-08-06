@@ -1,3 +1,4 @@
+```
 #include <iostream>
 #include <string>
 #include <bitset>
@@ -31,3 +32,4 @@ int main()
    }  
    std:: cout << max+1;
 }
+```
