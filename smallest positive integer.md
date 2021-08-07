@@ -1,4 +1,4 @@
-'''
+```
 // you can use includes, for example:
 #include <algorithm>
 
@@ -22,4 +22,4 @@ int solution(vector<int> &A) {
     if (ret < 0) ret = 1;
     return ret;
 }
-'''
+```
