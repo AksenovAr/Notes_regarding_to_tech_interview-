@@ -1,3 +1,4 @@
+```
 // Example program
 #include <iostream>
 #include <string>
@@ -19,3 +20,4 @@ int main()
    int iFind = 35;
    std::cout << "closest to  = "  << iFind << " is :" << findClosestNumber( vec, iFind) << std::endl;
 }
+```
