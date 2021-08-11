@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-
+```
 class integer
 {
     public:
@@ -34,3 +34,4 @@ int main()
   ob++;
   std::cout << "Hello, " << ob.x << "!\n";
 }
+    ```
