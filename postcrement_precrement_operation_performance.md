@@ -18,9 +18,9 @@ class integer
         return *this;
     }
     
-    integer operator ++(int r)
+    integer operator ++(int)
     {
-        integer a(r);
+        integer a(x);
         ++this->x;
         return a;
     }
