@@ -1,7 +1,8 @@
+```
 #include <iostream>
 #include <string>
 
-```
+
 class integer
 {
     public:
