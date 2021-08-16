@@ -16,6 +16,7 @@ int solution(vector<int> &A) {
         if (iNext - iCur > 1)
         {
             ret = iCur+1;
+            return ret;
         }
     }
     if (ret == 0 && A.size()) ret = ++A.at( A.size()-1 );
