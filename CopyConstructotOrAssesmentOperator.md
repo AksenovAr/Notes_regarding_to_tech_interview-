@@ -31,6 +31,6 @@ int main()
    std::cout << b.x;
 }
   
-  output 5
+  output 5 (copy ctor)
   
 ```
