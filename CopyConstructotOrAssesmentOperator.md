@@ -32,5 +32,5 @@ int main()
 }
   
   output 5 (copy ctor)
-  
+  to avoid calling copy ctor we may use explicit key word
 ```
